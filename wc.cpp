@@ -44,7 +44,7 @@ void WC::wc_parse(int size, char** arguments){
       }
       }
   }
-  if (this->c_flag == 0 && this->c_flag == 0 && this->c_flag == 0 && this->c_flag == 0) {
+  if (this->l_flag == 0 && this->c_flag == 0 && this->w_flag == 0 && this->m_flag == 0) {
     this->l_flag = 1;
     this->w_flag = 1;
     this->m_flag = 1;
