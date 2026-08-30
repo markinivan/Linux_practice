@@ -110,53 +110,33 @@ void WC::wc_main(){
 void WC::wc_res_print(std::vector<std::pair<std::vector<int>, std::string>> output_table) {    
   int max_chars = -1;
   for (int i = 0; i < (int)(output_table.size());i++) {
-    int len = number_len((output_table[i].first)[0]);
-    max_chars = max_chars > len ? max_chars : len;
-    len = number_len((output_table[i].first)[1]);
-    max_chars = max_chars > len ? max_chars : len;
-    len = number_len((output_table[i].first)[2]);
-    max_chars = max_chars > len ? max_chars : len;
-    len = number_len((output_table[i].first)[3]);
-    max_chars = max_chars > len ? max_chars : len;
+      int len = number_len((output_table[i].first)[0]);
+      max_chars = max_chars > len ? max_chars : len;
+      len = number_len((output_table[i].first)[1]);
+      max_chars = max_chars > len ? max_chars : len;
+      len = number_len((output_table[i].first)[2]);
+      max_chars = max_chars > len ? max_chars : len;
+      len = number_len((output_table[i].first)[3]);
+      max_chars = max_chars > len ? max_chars : len;
   }
+  
   for (int i = 0; i < (int)(output_table.size());i++) {
     if ((output_table[i].first)[0] == -1 && (output_table[i].first)[1] == -1 && (output_table[i].first)[2] == -1 && (output_table[i].first)[3] == -1) {
       std::cout << "wc: " << output_table[i].second << ": Нет такого файла или каталога\n";
     } else {
-      bool first = 1;
       if (this->l_flag == 1) {
-        if (!first) {
-          std::cout << std::setw(max_chars+1) << (output_table[i].first)[0];
-        } else {
-          std::cout << std::setw(max_chars) << (output_table[i].first)[0];
-          first = 0;
+          std::cout << std::setw(max_chars) << (output_table[i].first)[0] << " ";
         }
-      }
       if (this->w_flag == 1) {
-        if (!first) {
-          std::cout << std::setw(max_chars+1) << (output_table[i].first)[1];
-        } else {
-          std::cout << std::setw(max_chars) << (output_table[i].first)[1];
-          first = 0;
+          std::cout << std::setw(max_chars) << (output_table[i].first)[1] << " ";
         }
-      }
       if (this->c_flag == 1) {
-        if (!first) {
-          std::cout << std::setw(max_chars+1) << (output_table[i].first)[2];
-        } else {
-          std::cout << std::setw(max_chars) << (output_table[i].first)[2];
-          first = 0;
+          std::cout << std::setw(max_chars) << (output_table[i].first)[2] << " ";
         }
-      }
       if (this->m_flag == 1) {
-        if (!first) {
-          std::cout << std::setw(max_chars+1) << (output_table[i].first)[3];
-        } else {
-          std::cout << std::setw(max_chars) << (output_table[i].first)[3];
-          first = 0;
+          std::cout << std::setw(max_chars) << (output_table[i].first)[3] << " ";
         }
-      }
-    std::cout << " " << output_table[i].second << "\n";
+    std::cout << output_table[i].second << "\n";
     }
   }
 }
